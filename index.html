@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pizza Pi</title>
+    <link rel="icon" type="image/x-icon" href="/images/pizza_pi.png" />
+    <script type="module" src="app.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <img src="images/pizza_pi.png" id="header-logo" alt="pizza pi logo"/>
+      <img src="images/pitext.bmp" id="header-text" alt="pizza pi text"/> 
+      <p></p>
+    </header>
+    <main>
+    <form id="form">
+      <label for="pizzasizeone">Deal 1 pizza size</label>
+      <input
+        type="text"
+        name="pizzasizeone"
+        id="pizzasizeone"
+        class="text-field"
+        value=""
+      />
+      <label for="pizzaamountone">Deal 1 number of pizzas</label>
+      <input
+        type="text"
+        name="pizzaamountone"
+        id="pizzaamountone"
+        class="text-field"
+        value=""
+      />
+      <label for="dealcostone">Deal 1 cost</label>
+      <input
+        type="text"
+        name="dealcostone"
+        id="dealcostone"
+        class="text-field"
+        value=""
+      />
+      <label for="pizzasizetwo" >Deal 2 pizza size</label>
+      <input name="pizzasizetwo" type="text" id="pizzasizetwo" class="text-field" value="" />
+      <label for="pizzaamounttwo">Deal 2 number of pizzas</label></label>
+      <input name="pizzaamounttwo" type="text" id="pizzaamounttwo" class="text-field" value="" />
+      <label for="dealcosttwo">Deal 2 cost</label>
+      <input name="dealcosttwo" type="text" id="dealcosttwo" class="text-field" value="" />
+      <button type="submit" id="submit-button">Submit</button>
+    </form>
+    <div class="results-container">
+    <div id="results"></div>
+    <button id="clear-button">Clear results</button>
+</div>
+    </main>
+  </body>
+</html>
