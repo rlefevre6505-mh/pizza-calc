@@ -1,6 +1,5 @@
 const form = document.getElementById("form");
 const resultsDiv = document.getElementById("results");
-const clearButton = document.getElementById("clear-button");
 const resultsContainer = document.getElementById("results-container");
 const resultsOne = document.getElementById("resultsone");
 const resultsTwo = document.getElementById("resultstwo");
@@ -102,10 +101,17 @@ function calculate(event) {
     resultsTwo.appendChild(costOutputTwo);
   }
   resultsTwo.appendChild(crustOutputTwo);
+  //==============================================================
+  const clearButton = document.createElement("button");
+  clearButton.id = "clear-button";
+  clearButton.textContent = "Reset";
+  resultsDiv.appendChild(clearButton);
+  clearButton.addEventListener("click", function () {
+    window.location.reload();
+  });
+
+  // <button id="clear-button">Reset</button>
   setTimeout(() => {
     fadeIn(resultsContainer);
   }, 500);
 }
-clearButton.addEventListener("click", function () {
-  window.location.reload();
-});
