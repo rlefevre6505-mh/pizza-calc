@@ -16,41 +16,48 @@
     </header>
     <main>
     <form id="form">
+      <div class="form-box">
       <label for="pizzasizeone">Deal 1 pizza size</label>
       <input
-        type="text"
+        type="number"
         name="pizzasizeone"
         id="pizzasizeone"
         class="text-field"
         value=""
+        required
       />
-      <label for="pizzaamountone">Deal 1 number of pizzas</label>
+      </br><label for="pizzaamountone">Deal 1 number of pizzas</label>
       <input
-        type="text"
+        type="number"
         name="pizzaamountone"
         id="pizzaamountone"
         class="text-field"
         value=""
+        required
       />
-      <label for="dealcostone">Deal 1 cost</label>
+      </br><label for="dealcostone">Deal 1 cost</label>
       <input
-        type="text"
+        type="number"
+        step=".01"
         name="dealcostone"
         id="dealcostone"
         class="text-field"
         value=""
-      />
+      /></div>
+            <div class="form-box">
       <label for="pizzasizetwo" >Deal 2 pizza size</label>
-      <input name="pizzasizetwo" type="text" id="pizzasizetwo" class="text-field" value="" />
-      <label for="pizzaamounttwo">Deal 2 number of pizzas</label></label>
-      <input name="pizzaamounttwo" type="text" id="pizzaamounttwo" class="text-field" value="" />
-      <label for="dealcosttwo">Deal 2 cost</label>
-      <input name="dealcosttwo" type="text" id="dealcosttwo" class="text-field" value="" />
+      <input name="pizzasizetwo" type="number" id="pizzasizetwo" class="text-field" value="" />
+      </br><label for="pizzaamounttwo">Deal 2 number of pizzas</label></label>
+      <input name="pizzaamounttwo" type="number" id="pizzaamounttwo" class="text-field" value="" />
+      </br><label for="dealcosttwo">Deal 2 cost</label>
+      <input name="dealcosttwo" type="number" step=".01" id="dealcosttwo" class="text-field" value="" /></div>
       <button type="submit" id="submit-button">Submit</button>
     </form>
-    <div class="results-container">
-    <div id="results"></div>
-    <button id="clear-button">Clear results</button>
+
+    <div id="results-container">
+    <div id="results">
+    </div>
+    <button id="clear-button">Reset</button>
 </div>
     </main>
   </body>
