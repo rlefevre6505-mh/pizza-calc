@@ -5,29 +5,24 @@ const resultsOne = document.getElementById("resultsone");
 const resultsTwo = document.getElementById("resultstwo");
 
 function fadeOut(element) {
-  let op = 1;
-  const timer = setInterval(function () {
-    if (op <= 0.1) {
-      clearInterval(timer);
-      element.style.display = "none";
-    }
-    element.style.opacity = op;
-    element.style.filter = "alpha(opacity=" + op * 100 + ")";
-    op -= op * 0.1;
-  }, 16);
+  if (screen.width <= 1000) {
+    let op = 1;
+    const timer = setInterval(function () {
+      element.style.opacity = op;
+      element.style.filter = "alpha(opacity=" + op * 100 + ")";
+      op -= op * 0.1;
+    }, 12);
+  } else {
+  }
 }
 
 function fadeIn(element) {
   var op = 0.1;
-  element.style.display = "block";
   var timer = setInterval(function () {
-    if (op >= 1) {
-      clearInterval(timer);
-    }
     element.style.opacity = op;
     element.style.filter = "alpha(opacity=" + op * 100 + ")";
     op += op * 0.1;
-  }, 16);
+  }, 8);
 }
 
 form.addEventListener("submit", calculate);
@@ -56,7 +51,7 @@ function calculate(event) {
     Math.round(totalAreaOne * 100) / 100
   } sqIn`;
   costOutputOne.textContent = `Cost per area: £${valueOne} per sqIn`;
-  crustOutputOne.textContent = `Total crust for dipping: ${
+  crustOutputOne.textContent = `Total crust: ${
     Math.round(circumfrenceOne * 100) / 100
   } inches`;
   let areaTwo = Math.PI * Math.pow(radiusTwo, 2);
@@ -75,7 +70,7 @@ function calculate(event) {
     Math.round(totalAreaTwo * 100) / 100
   } sqIn`;
   costOutputTwo.textContent = `Cost per area: £${valueTwo} per sqIn`;
-  crustOutputTwo.textContent = `Total crust for dipping: ${
+  crustOutputTwo.textContent = `Total crust: ${
     Math.round(circumfrenceTwo * 100) / 100
   } inches`;
   const resultsOne = document.createElement("div");
@@ -86,6 +81,8 @@ function calculate(event) {
   resultsSummary.classList.add("resultsDiv");
   const headerOne = document.createElement("h2");
   const headerTwo = document.createElement("h2");
+  headerOne.textContent = "Deal 1";
+  headerTwo.textContent = "Deal 2";
   resultsOne.appendChild(headerOne);
   resultsTwo.appendChild(headerTwo);
   resultsContainer.appendChild(resultsOne);
@@ -101,17 +98,23 @@ function calculate(event) {
     resultsTwo.appendChild(costOutputTwo);
   }
   resultsTwo.appendChild(crustOutputTwo);
-  //==============================================================
   const clearButton = document.createElement("button");
   clearButton.id = "clear-button";
   clearButton.textContent = "Reset";
-  resultsDiv.appendChild(clearButton);
   clearButton.addEventListener("click", function () {
     window.location.reload();
   });
-
-  // <button id="clear-button">Reset</button>
+  resultsDiv.appendChild(clearButton);
+  if (window.screen.width < 800) {
+    resultsDiv.appendChild(clearButton);
+  } else if (window.screen.width >= 800) {
+    const submitButton = document.getElementById("submit-button");
+    form.removeChild(submitButton);
+    form.appendChild(clearButton);
+  }
   setTimeout(() => {
     fadeIn(resultsContainer);
-  }, 500);
+  }, 400);
 }
+
+//adjustemnt for fullscreen view
