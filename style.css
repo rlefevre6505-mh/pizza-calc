@@ -29,7 +29,7 @@ header {
 }
 
 #header-text {
-  max-height: 12vw;
+  max-height: 10vw;
   width: auto;
 }
 
@@ -134,10 +134,13 @@ input:last-child {
     justify-content: center;
     margin-bottom: 0.4rem;
   }
-  header img {
+  #header-text {
+    padding-top: 5px;
+    height: 10vw;
+  }
+  #header-logo {
     padding-top: 10px;
-    height: 140px;
-    width: auto;
+    height: 14vw;
   }
   main {
     display: grid;
@@ -177,7 +180,7 @@ input:last-child {
     writing-mode: vertical-rl;
     text-orientation: upright;
     font-size: 1.6rem;
-    color: white;
+    color: rgba(255, 255, 255, 0.9);
     position: absolute;
     left: 48.8vw;
   }
@@ -186,7 +189,7 @@ input:last-child {
     width: 0;
     border-top: 60px solid transparent;
     border-bottom: 60px solid transparent;
-    border-left: 25px solid white;
+    border-left: 25px solid rgba(255, 255, 255, 0.9);
     position: absolute;
     left: 51.6vw;
   }
