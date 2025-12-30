@@ -5,8 +5,8 @@
 }
 
 body {
-  /* overflow: clip; */
   background-image: url("images/pizza_bg.png");
+  background-size: cover;
   color: white;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 1.2rem;
@@ -171,5 +171,23 @@ input:last-child {
   .results-div {
     margin-bottom: -50;
     padding: 0;
+  }
+
+  .results-label {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    font-size: 1.6rem;
+    color: white;
+    position: absolute;
+    left: 48.8vw;
+  }
+  .results-arrow {
+    height: 0;
+    width: 0;
+    border-top: 60px solid transparent;
+    border-bottom: 60px solid transparent;
+    border-left: 25px solid white;
+    position: absolute;
+    left: 51.6vw;
   }
 }

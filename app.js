@@ -4,8 +4,20 @@ const resultsContainer = document.getElementById("results-container");
 const resultsOne = document.getElementById("resultsone");
 const resultsTwo = document.getElementById("resultstwo");
 
+if (window.screen.width >= 800) {
+  const resultsLabel = document.createElement("div");
+  const resultsArrow = document.createElement("div");
+  resultsLabel.classList.add("results-label");
+  resultsArrow.classList.add("results-arrow");
+  resultsLabel.textContent = "RESULTS";
+  form.appendChild(resultsLabel);
+  form.appendChild(resultsArrow);
+} else if (window.screen.width < 800) {
+} else {
+}
+
 function fadeOut(element) {
-  if (screen.width <= 1000) {
+  if (screen.width < 800) {
     let op = 1;
     const timer = setInterval(function () {
       element.style.opacity = op;
@@ -45,15 +57,12 @@ function calculate(event) {
   let costOutputOne = document.createElement("p");
   areaOutputOne.classList.add("output");
   costOutputOne.classList.add("output");
-  let crustOutputOne = document.createElement("p");
-  crustOutputOne.classList.add("output");
   areaOutputOne.textContent = `Total pizza area: ${
     Math.round(totalAreaOne * 100) / 100
-  } sqIn`;
-  costOutputOne.textContent = `Cost per area: £${valueOne} per sqIn`;
-  crustOutputOne.textContent = `Total crust: ${
+  } square inches, with ${
     Math.round(circumfrenceOne * 100) / 100
-  } inches`;
+  } inches of crust`;
+  costOutputOne.textContent = `Cost per square inch: £${valueOne}`;
   let areaTwo = Math.PI * Math.pow(radiusTwo, 2);
   let totalAreaTwo = areaTwo * formValues.pizzaamounttwo;
   let costTwo = formValues.dealcosttwo;
@@ -63,16 +72,13 @@ function calculate(event) {
   areaOutputTwo.classList.add("output");
   let costOutputTwo = document.createElement("p");
   costOutputTwo.classList.add("output");
-  let crustOutputTwo = document.createElement("p");
-  crustOutputTwo.classList.add("output");
   costOutputTwo.classList.add("output");
   areaOutputTwo.textContent = `Total pizza area: ${
     Math.round(totalAreaTwo * 100) / 100
-  } sqIn`;
-  costOutputTwo.textContent = `Cost per area: £${valueTwo} per sqIn`;
-  crustOutputTwo.textContent = `Total crust: ${
+  } square inches, with ${
     Math.round(circumfrenceTwo * 100) / 100
-  } inches`;
+  } inches of crust`;
+  costOutputTwo.textContent = `Cost per square inch: £${valueTwo}`;
   const resultsOne = document.createElement("div");
   resultsOne.classList.add("resultsDiv");
   const resultsTwo = document.createElement("div");
@@ -87,21 +93,19 @@ function calculate(event) {
   resultsTwo.appendChild(headerTwo);
   resultsContainer.appendChild(resultsOne);
   resultsContainer.appendChild(resultsTwo);
-  // resultsContainer.appendChild(resultsSummary);
   resultsOne.appendChild(areaOutputOne);
   if (formValues.dealcostone != "") {
     resultsOne.appendChild(costOutputOne);
   }
-  resultsOne.appendChild(crustOutputOne);
   resultsTwo.appendChild(areaOutputTwo);
   if (formValues.dealcosttwo != "") {
     resultsTwo.appendChild(costOutputTwo);
   }
-  resultsTwo.appendChild(crustOutputTwo);
   const clearButton = document.createElement("button");
   clearButton.id = "clear-button";
   clearButton.textContent = "Reset";
   clearButton.addEventListener("click", function () {
+    resultsContainer.innerHTML = "";
     window.location.reload();
   });
   resultsDiv.appendChild(clearButton);
@@ -116,5 +120,3 @@ function calculate(event) {
     fadeIn(resultsContainer);
   }, 400);
 }
-
-//adjustemnt for fullscreen view
