@@ -12,7 +12,6 @@
     <header>
       <img src="images/pizza_pi.png" id="header-logo" alt="pizza pi logo"/>
       <img src="images/pitext.bmp" id="header-text" alt="pizza pi text"/> 
-      <p></p>
     </header>
     <main>
     <form id="form">
@@ -24,6 +23,7 @@
         id="pizzasizeone"
         class="text-field"
         value=""
+        min="1"
         required
       />
       </br><label for="pizzaamountone">Deal 1 number of pizzas</label>
@@ -33,6 +33,7 @@
         id="pizzaamountone"
         class="text-field"
         value=""
+        min="1"
         required
       />
       </br><label for="dealcostone">Deal 1 cost</label>
@@ -42,15 +43,16 @@
         name="dealcostone"
         id="dealcostone"
         class="text-field"
+        min="1"
         value=""
       /></div>
             <div class="form-box">
       <label for="pizzasizetwo" >Deal 2 pizza size</label>
-      <input name="pizzasizetwo" type="number" id="pizzasizetwo" class="text-field" value="" />
+      <input name="pizzasizetwo" type="number" id="pizzasizetwo" class="text-field" value="" min="1" />
       </br><label for="pizzaamounttwo">Deal 2 number of pizzas</label>
-      <input name="pizzaamounttwo" type="number" id="pizzaamounttwo" class="text-field" value="" />
+      <input name="pizzaamounttwo" type="number" id="pizzaamounttwo" class="text-field" value="" min="1" />
       </br><label for="dealcosttwo">Deal 2 cost</label>
-      <input name="dealcosttwo" type="number" step=".01" id="dealcosttwo" class="text-field" value="" /></div>
+      <input name="dealcosttwo" type="number" step=".01" id="dealcosttwo" class="text-field" value="" min="1" /></div>
       <button type="submit" id="submit-button">Submit</button>
     </form>
 

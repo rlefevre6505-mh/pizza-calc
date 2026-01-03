@@ -37,11 +37,10 @@ function fadeIn(element) {
   }, 8);
 }
 
-form.addEventListener("submit", calculate);
-
-function calculate(event) {
+form.addEventListener("submit", function (event) {
   event.preventDefault();
   const formDataTemplate = new FormData(form);
+  console.log(formDataTemplate);
   const formValues = Object.fromEntries(formDataTemplate);
   let radiusOne = formValues.pizzasizeone / 2;
   let areaOne = Math.PI * Math.pow(radiusOne, 2);
@@ -119,4 +118,4 @@ function calculate(event) {
   setTimeout(() => {
     fadeIn(resultsContainer);
   }, 400);
-}
+});
